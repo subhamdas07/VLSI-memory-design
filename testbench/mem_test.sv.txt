@@ -1,0 +1,10 @@
+class mem_test;
+	mem_env env;
+  
+  task run();
+    env = new();
+    env.run();
+    $display("this is test");
+
+  endtask
+endclass

@@ -1,0 +1,7 @@
+interface mem_intf(input clk,rst);
+  logic[31:0] addr;
+  logic[31:0] wdata;
+  logic[31:0] rdata;
+  logic	   wr_en;
+  logic	   rd_en;
+endinterface

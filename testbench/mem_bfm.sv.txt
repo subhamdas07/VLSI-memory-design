@@ -1,0 +1,9 @@
+class mem_bfm;
+  mem_tx tx;
+
+  task run();
+    mem_common::gen2bfm_mb.get(tx);
+    $display("*************************    BFM    *********************************");
+    tx.print();
+  endtask
+endclass

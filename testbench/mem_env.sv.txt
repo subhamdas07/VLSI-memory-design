@@ -1,0 +1,10 @@
+class mem_env;
+  mem_agent agent;
+  
+  task run();
+    agent = new();
+    agent.run();
+    $display("this is environment");
+
+  endtask
+endclass

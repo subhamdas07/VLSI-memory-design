@@ -1,0 +1,7 @@
+class mem_scb;
+  mem_tx tx;
+  
+  task run();
+    $display("this is scoreboard");
+  endtask
+endclass

@@ -1,0 +1,21 @@
+class mem_agent;
+  mem_gen gen;
+  mem_bfm bfm;
+  mem_mon mon;
+  mem_scb scb;
+  
+  task run();
+    gen = new();
+    bfm = new();
+    mon = new();
+    scb = new();
+        $display("this is agent");
+
+    fork 
+      gen.run();
+      bfm.run();
+      mon.run();
+      scb.run();
+    join
+  endtask
+endclass

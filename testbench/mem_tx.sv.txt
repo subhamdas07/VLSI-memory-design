@@ -1,0 +1,17 @@
+class mem_tx;
+  rand logic[31:0] addr;
+  rand logic[31:0] wdata;
+  logic[31:0] 	   rdata;
+  rand logic	   wr_en;
+  rand logic	   rd_en;
+  
+  function print();
+    $display("***********************  Transaction  *******************************");
+    $display("Address = 0x%h",addr);
+    $display("Write enable = %0d",wr_en);
+    $display("Read enable = %0d",rd_en);
+    $display("Write Data = 0x%h",wdata);
+    $display("Read Data = 0x%h",rdata);
+    $display("=====================================================================");
+  endfunction
+endclass

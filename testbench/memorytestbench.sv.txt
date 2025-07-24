@@ -1,0 +1,54 @@
+// Code your testbench here
+// or browse Examples
+`include "mem_tx.sv"
+`include "mem_intf.sv"
+`include "mem_common.sv"
+`include "mem_gen.sv"
+`include "mem_bfm.sv"
+`include "mem_mon.sv"
+`include "mem_scb.sv"
+`include "mem_agent.sv"
+`include "mem_env.sv"
+`include "mem_test.sv"
+`include "mem_tb.sv"
+module top;
+
+  reg clk,rst;
+  
+  initial begin
+    clk = 0;
+    forever #5 clk = ~clk;
+  end
+      
+  initial begin
+  	rst = 1;
+    repeat (2) @(posedge clk);
+    rst = 0;
+  end
+  
+  initial begin
+  	#2000;
+    $finish;
+  end
+
+  mem_intf pif(clk,rst);
+  
+  initial begin
+    mem_common::vif = pif;
+  end
+ 
+  memory mem(
+    .clk(clk),
+    .rst(rst),
+    .addr(pif.addr),
+    .wr_en(pif.wr_en),
+    .rd_en(pif.rd_en),
+    .wdata(pif.wdata),
+    .rdata(pif.rdata)
+  );
+    
+  
+  
+    mem_tb tb();
+
+endmodule

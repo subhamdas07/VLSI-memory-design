@@ -1,0 +1,9 @@
+program mem_tb;
+  mem_test test;
+initial begin
+  test = new();
+    test.run();
+    $display("this is mem_tb");
+
+  end
+endprogram

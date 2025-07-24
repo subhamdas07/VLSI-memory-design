@@ -1,0 +1,13 @@
+class mem_gen;
+  mem_tx tx;
+
+  
+  task run();
+    
+    $display("************************* GENERATOR *********************************");
+    tx = new();
+    tx.randomize();
+    tx.print();
+    mem_common::gen2bfm_mb.put(tx);
+  endtask
+endclass

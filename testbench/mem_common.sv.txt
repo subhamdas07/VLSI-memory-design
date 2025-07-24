@@ -1,0 +1,5 @@
+class mem_common;
+  static mailbox gen2bfm_mb = new();
+  static mailbox gen2mon_mb;
+  static virtual mem_intf vif;
+endclass
